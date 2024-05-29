@@ -31,6 +31,14 @@ public class SeedData implements CommandLineRunner{
 		student1.setName("hero");
 		student1.setDep("cse");
 		
+		Student student3 = new Student();
+		student3.setId(2);
+		student3.setName("hero");
+		student3.setDep("cse");
+		
+		
+		sturepo.save(student3);
+		
 		sturepo.save(student);
 		sturepo.save(student1);
 		
@@ -39,18 +47,27 @@ public class SeedData implements CommandLineRunner{
 		marks1.setId((long) 1);
 		marks1.setMarks((long) 23);
 		marks1.setSub("ece");
+		marks1.setName(student1.getName());
 		
 		Marks marks = new Marks();
 		marks.setStudent(student1);
 		marks.setId((long) 2);
 		marks.setMarks((long) 24);
 		marks.setSub("disco");
+		marks.setName(student.getName());
 		
 		
-		
+		Marks marks2 = new Marks();
+		marks2.setStudent(student3);
+		marks2.setId((long) 2);
+		marks2.setMarks((long) 24);
+		marks2.setSub("sd");
+		marks2.setName(student.getName());
 		
 		marksrepo.save(marks1);
 		marksrepo.save(marks);
+		marksrepo.save(marks2);
+		
 		
 		
 		

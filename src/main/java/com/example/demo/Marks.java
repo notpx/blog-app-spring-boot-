@@ -31,6 +31,7 @@ public class Marks {
 	private Long id;
 	private Long marks;
 	private String sub;
+	private String name;
 	
 	
 	  
