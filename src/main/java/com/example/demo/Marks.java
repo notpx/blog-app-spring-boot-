@@ -34,7 +34,7 @@ public class Marks {
 	private String name;
 	
 	
-	  
+	  //many marks can be attached to one student. Getters and Setters and generated using Lombok.
 	  @ManyToOne
 	  @JoinColumn(name = "disco", referencedColumnName = "id")
 	  Student student;
