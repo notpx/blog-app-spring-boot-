@@ -2,6 +2,7 @@ package com.example.demo;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -16,12 +17,19 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class StudentController {
 	
-	
+	@Autowired
 	private final StudentRepo studrepo;
 
 	public StudentController(StudentRepo studrepo) {
 		this.studrepo = studrepo;
 	}
+	
+	 @GetMapping("/")
+	    public String home(Model model) {
+	        List<Student> posts = studrepo.findAll();
+	        model.addAttribute("posts", posts);
+	        return "home";
+	    }
 	
 	@GetMapping("/students")
 	public List<Student> getAllStudents(){
