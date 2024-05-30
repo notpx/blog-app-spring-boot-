@@ -7,13 +7,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@Controller
 public class StudentController {
 
 	@Autowired
@@ -23,23 +24,31 @@ public class StudentController {
 		this.studrepo = studrepo;
 	}
 
-	@GetMapping("/")
-	public String home(Model model) {
-		List<Student> posts = studrepo.findAll();
-		model.addAttribute("posts", posts);
-		return "home";
-	}
 
-	@GetMapping("/addnew")
-	public String addnew() {
-
-		return "add";
-	}
 
 	@GetMapping("/students")
 	public List<Student> getAllStudents() {
 		return studrepo.findAll();
 	}
+	
+
+	@GetMapping("/registerstudent")
+	public String registerStudent(Model model) {
+		Student student = new Student();
+		model.addAttribute("student", student);
+		return "register";
+		
+	}
+	
+	@PostMapping("/registerstudent")
+	public String regNewStudent(@ModelAttribute Student student) {
+		studrepo.save(student);
+		return "redirect:/addmarks";
+		
+	}
+	
+	
+	
 
 	@PutMapping("/studentu")
 	private Student update(@RequestBody Student student) {
@@ -60,10 +69,6 @@ public class StudentController {
 	// template
 	// }
 
-	@PostMapping("/add")
-	public Student addStudent(@RequestBody Student student) {
-		return studrepo.save(student);
-
-	}
+	
 
 }

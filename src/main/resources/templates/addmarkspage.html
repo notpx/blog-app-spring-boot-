@@ -1,0 +1,20 @@
+<!-- personForm.html -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Form</title>
+</head>
+<body>
+    <h2>Now that you've logged in, Add your marks</h2>
+    <form th:action="@{/addmarks}" th:object="${marks}" method="post">
+        <p>marks: <input type="text" th:field="*{marks}" /></p>
+        <p>sub: <input type="text" th:field="*{sub}" /></p>
+		<p>name: <input type="text" th:field="*{name}" /></p>
+		<label for="student">Student:</label>
+		
+        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    </form>
+</body>
+</html>
+	

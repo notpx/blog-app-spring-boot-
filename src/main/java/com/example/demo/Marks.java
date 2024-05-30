@@ -36,15 +36,11 @@ public class Marks {
 	
 	  //many marks can be attached to one student. Getters and Setters and generated using Lombok.
 	  @ManyToOne
-	  @JoinColumn(name = "disco", referencedColumnName = "id")
+	  @JoinColumn(name = "student id", referencedColumnName = "id")
 	  Student student;
 
 
 
-	public void setStudent(Student student2) {
-		// TODO Auto-generated method stub
-		this.student = student2;
-	}
 
 
 	

@@ -3,14 +3,13 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Person Form</title>
+    <title>Student Form</title>
 </head>
 <body>
-    <h2>Add marks form</h2>
-    <form th:action="@{/addstudent}" th:object="${student}" method="post">
-        <p>Marks: <input type="number" th:field="*{marks}" /></p>
-        <p>Sub: <input type="text" th:field="*{sub}" /></p>
+    <h2>Add Student</h2>
+    <form th:action="@{/registerstudent}" th:object="${student}" method="post">
         <p>Name: <input type="text" th:field="*{name}" /></p>
+        <p>Sub: <input type="text" th:field="*{dep}" /></p>
         <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
     </form>
 </body>
