@@ -1,0 +1,22 @@
+<!-- personForm.html -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Person Form</title>
+</head>
+
+<body>
+	<a href="/allposts">see all pages</a>
+	<h2>Add new post</h2>
+
+	<form th:action="@{/newpost}" th:object="${post}" method="post">
+		<p>title <input type="text" th:field="*{title}" /></p>
+		<p>body: <input type="text" th:field="*{body}" /></p>
+
+		<p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+	</form>
+</body>
+
+</html>

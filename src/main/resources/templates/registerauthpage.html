@@ -1,0 +1,20 @@
+<!-- personForm.html -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Student Form</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+	<h2>Now that you've logged in, Add your marks</h2>
+	<form class="form-group" th:action="@{/newauthor}" th:object="${author}" method="post">
+		<p>name: <input type="text" th:field="*{name}" /></p>
+		<p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+	</form>
+</body>
+
+</html>

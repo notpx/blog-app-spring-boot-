@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Blog Home</title>
+</head>
+
+<body>
+	<a href="/newpost">add a new post</a>
+	<h1>Welcome to the Blog</h1>
+
+	<div th:each="post : ${post}">
+		<div>
+			<h2 th:text="${post.body}"></h2>
+			<p>Author: <span th:text="${post.title}"></span></p>
+			<p>Author: <span th:text="${post.body}"></span></p>
+
+			<hr>
+		</div>
+	</div>
+</body>
+
+</html>

@@ -1,20 +1,16 @@
 package com.example.demo;
 
 
-import jakarta.*;
-import java.util.List;
-import java.util.Objects;
-import io.micrometer.common.lang.NonNull;
-import jakarta.annotation.Nonnull;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 
 
@@ -23,21 +19,21 @@ import lombok.*;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-public class Marks {
+public class Post {
 
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Long id;
-	private Long marks;
-	private String sub;
-	private String name;
+	private String title;
+	private String body;
+	
 	
 	
 	  //many marks can be attached to one student. Getters and Setters and generated using Lombok.
 	  @ManyToOne
-	  @JoinColumn(name = "student id", referencedColumnName = "id")
-	  Student student;
+	  @JoinColumn(name = "authorid", referencedColumnName = "id")
+	  Author author;
 
 
 
